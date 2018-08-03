@@ -1,0 +1,8 @@
+
+<ng-template #defaultTableBody let-body="data">
+  <tr *ngFor="let row of data" >
+    <td *ngFor="let item of rowToCell(row)">{{item.value}}</td>
+  </tr>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="defaultTableBody"></ng-container>

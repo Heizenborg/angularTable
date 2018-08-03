@@ -59,10 +59,7 @@ export class InsiteTableComponent implements OnInit {
     ];
   }
 
- public rowToCell(obj) {
-    return Object.keys(obj).map((key) => {
-      return { key: key, value: obj[key]}});
-}
+ 
 
 public headerFilter(filterValue) {
   console.log('filter value:', filterValue);

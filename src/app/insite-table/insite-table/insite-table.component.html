@@ -1,8 +1,4 @@
 <table >
  <thead table-head [headers]=headers (selectedFilter)='headerFilter($event)'></thead>
-  <tbody >
-    <tr *ngFor="let row of data" >
-      <td *ngFor="let item of rowToCell(row)">{{item.value}}</td>
-    </tr>
-  </tbody>
+ <tbody table-body [data]=data></tbody> 
 </table>
