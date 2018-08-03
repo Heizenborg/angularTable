@@ -1,0 +1,17 @@
+
+	th {
+		padding: 10px 0;
+		text-align: left;
+		padding-left: 2%;
+		text-transform: uppercase;
+		i{
+			margin-left:8px;
+
+		}
+	}
+	th:first-child {
+		border-radius: 4px 0 0 0;
+	}
+	th:last-child {
+		border-radius: 0 4px 0 0;
+	}

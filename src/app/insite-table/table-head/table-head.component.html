@@ -1,0 +1,7 @@
+
+  <tr>
+    <th *ngFor="let header of headers" (click)="setFilterHeader(header.title)">
+        {{header.title}} 
+        <i [ngClass]="header.filter && header.descending ? 'fa fa-caret-down': 'fa fa-caret-up'"></i>
+    </th>
+  </tr>
