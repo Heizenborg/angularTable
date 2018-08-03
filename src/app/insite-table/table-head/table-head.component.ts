@@ -17,7 +17,6 @@ export class TableHeadComponent implements OnInit {
   }
 
   public setFilterHeader(filterValue) {
-    //console.log("filter by ", filterValue);
     this.selectedFilter.emit(filterValue);
     for (var item = 0; item < this.headers.length; item++ ) {
       if (this.headers[item].title === filterValue) {
