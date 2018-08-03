@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TableHeaders } from '../interfaces/insite-table-interfaces';
 
 @Component({
@@ -10,13 +10,15 @@ export class TableHeadComponent implements OnInit {
 
 
   @Input() headers: TableHeaders[];
+  @Output() selectedFilter = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
   public setFilterHeader(filterValue) {
-    console.log("filter by ", filterValue);
+    //console.log("filter by ", filterValue);
+    this.selectedFilter.emit(filterValue);
     for (var item = 0; item < this.headers.length; item++ ) {
       if (this.headers[item].title === filterValue) {
         this.headers[item].descending = !this.headers[item].descending;

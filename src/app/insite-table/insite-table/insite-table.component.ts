@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TableHeadComponent } from '../table-head/table-head.component';
 import { TableHeaders } from '../interfaces/insite-table-interfaces';
 
@@ -13,6 +13,7 @@ export class InsiteTableComponent implements OnInit {
 
    @Input() headers: TableHeaders[];
   // @Input() data: any;
+  @Output() selectedFilter = new EventEmitter();
 
   data;
   constructor() { }
@@ -33,6 +34,7 @@ export class InsiteTableComponent implements OnInit {
       {
         'title': 'age',
         'filter': true,
+        'align': 'center'
       }];
 
     this.data = [
@@ -56,10 +58,15 @@ export class InsiteTableComponent implements OnInit {
       }
     ];
   }
-  
- public generateArray(obj){
-    return Object.keys(obj).map((key)=>{ 
-      return {key:key, value:obj[key]}});
+
+ public rowToCell(obj) {
+    return Object.keys(obj).map((key) => {
+      return { key: key, value: obj[key]}});
+}
+
+public headerFilter(filterValue) {
+  console.log('filter value:', filterValue);
+  this.selectedFilter.emit(filterValue);
 }
 
 }

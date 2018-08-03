@@ -1,16 +1,8 @@
-<!--
-  {
-    
-  }
--->
-
-
 <table >
- <thead table-head [headers]=headers></thead>
+ <thead table-head [headers]=headers (selectedFilter)='headerFilter($event)'></thead>
   <tbody >
     <tr *ngFor="let row of data" >
-      <td *ngFor="let item of generateArray(row)">{{item.value}}</td>
+      <td *ngFor="let item of rowToCell(row)">{{item.value}}</td>
     </tr>
-   
   </tbody>
 </table>
