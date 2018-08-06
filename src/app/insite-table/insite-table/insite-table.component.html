@@ -1,4 +1,16 @@
 <table >
  <thead table-head [headers]=headers (selectedFilter)='headerFilter($event)'></thead>
- <tbody table-body [data]=data></tbody> 
+ <tbody 
+ table-body 
+ [data]=data
+ [tbodyTemplate]="portfolioTableBody"></tbody> 
 </table>
+
+<ng-template #portfolioTableBody>
+    <tr *ngFor="let row of data" >
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </ng-template>

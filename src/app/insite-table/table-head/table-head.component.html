@@ -2,6 +2,6 @@
   <ng-container>
     <th *ngFor="let header of headers" (click)="setFilterHeader(header.title)" [ngStyle]="{'text-align': header.align}">
         {{header.title}} 
-        <i [ngClass]="header.filter && header.descending ? 'fa fa-caret-down': 'fa fa-caret-up'"></i>
+        <i *ngIf="header.filter" [ngClass]="header.filter && header.descending ? 'fa fa-caret-down': 'fa fa-caret-up'" ></i>
     </th>
   </ng-container>

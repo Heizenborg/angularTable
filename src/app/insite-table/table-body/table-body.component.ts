@@ -14,6 +14,7 @@ export class TableBodyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("template:", this.tbodyTemplate);
   }
 
   public rowToCell(obj) {
