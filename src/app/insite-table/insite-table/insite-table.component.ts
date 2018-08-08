@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TableHeadComponent } from '../table-head/table-head.component';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
+//import { TableHeadComponent } from '../table-head/table-head.component';
 import { TableHeaders } from '../interfaces/insite-table-interfaces';
 
 
@@ -12,13 +12,20 @@ import { TableHeaders } from '../interfaces/insite-table-interfaces';
 export class InsiteTableComponent implements OnInit {
 
    @Input() headers: TableHeaders[];
+   @Input() isSticky: boolean = false;
+   @Input() tbodyTemplate: TemplateRef<any>;
+   @Input() height: number = 90;
   // @Input() data: any;
   @Output() selectedFilter = new EventEmitter();
 
   data;
-  constructor() { }
+  numbers: number[];
+  constructor() { 
+    this.numbers = Array(60).fill(0).map((xdescribe,i)=>i);
+  }
 
   ngOnInit() {
+    console.log("sticky:", this.isSticky);
     this.headers = [
       {
         'title': 'name',

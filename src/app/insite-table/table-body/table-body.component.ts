@@ -9,12 +9,12 @@ export class TableBodyComponent implements OnInit {
   @Input() data: any[] = [];
 
   @Input()
-  tbodyTemplate: TemplateRef<any>;
+  template: TemplateRef<any>;
 
   constructor() { }
 
   ngOnInit() {
-    console.log("template:", this.tbodyTemplate);
+    console.log("template:", this.template.elementRef);
   }
 
   public rowToCell(obj) {

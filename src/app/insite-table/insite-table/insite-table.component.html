@@ -1,16 +1,24 @@
-<table >
- <thead table-head [headers]=headers (selectedFilter)='headerFilter($event)'></thead>
- <tbody 
- table-body 
- [data]=data
- [tbodyTemplate]="portfolioTableBody"></tbody> 
+<table *ngIf="!isSticky">
+  <thead table-head [headers]=headers (selectedFilter)='headerFilter($event)'></thead>
+  <tbody 
+  table-body 
+  [data]=data
+  [template]="tbodyTemplate"
+  ></tbody> 
 </table>
 
-<ng-template #portfolioTableBody>
-    <tr *ngFor="let row of data" >
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </ng-template>
+<div *ngIf="isSticky" [style.height.%]="height">
+  <table>
+      <thead table-head [headers]=headers (selectedFilter)='headerFilter($event)'></thead>
+  </table>
+  <div style="height:94%;overflow-y:scroll;">
+    <table>
+        <tbody 
+        table-body 
+        [data]="data"
+        [template]="tbodyTemplate"
+        ></tbody> 
+    </table>
+  </div>
+</div>
+
