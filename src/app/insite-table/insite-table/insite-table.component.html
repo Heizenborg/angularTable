@@ -1,4 +1,4 @@
-<table *ngIf="!isSticky">
+<table *ngIf="!isSticky"[style.height.%]="height" >
   <thead table-head [headers]=headers (selectedFilter)='headerFilter($event)'></thead>
   <tbody 
   table-body 
